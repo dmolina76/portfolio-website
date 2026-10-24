@@ -373,8 +373,8 @@ export type Project = {
       ],
       details: {
         summary: [
-          "My senior capstone is a year-long project with a real sponsor, Parkview Health. Our six-person team is building management software for Parkview’s Advanced Medical Simulation Laboratory (AMSL), where clinicians train on simulated medical scenarios. The system brings the lab’s scheduling, training requests, equipment inventory, and maintenance into one place, with a dashboard, calendar, event management, an intake form, inventory and maintenance managers, and an admin panel.",
-          "I own the API and integration layer. That covers designing and implementing the API in FastAPI, the MongoDB Atlas schema, and the data access layer the frontend builds on. The biggest piece is the Microsoft 365 integration: Parkview already runs on Microsoft, so I’m connecting the system to Outlook calendars, email, and Teams through the Microsoft Graph API, so lab events show up where staff already work instead of in yet another tool.",
+          "My senior capstone is a year-long project partnering with a titan in Indiana's healthcare industry, Parkview Health. Our six-person team is building management software for Parkview’s Advanced Medical Simulation Laboratory (AMSL), where clinicians train on simulated medical scenarios. The system brings the lab’s scheduling, training requests, equipment inventory, and maintenance into one place, with a dashboard, calendar, event management, an intake form, inventory and maintenance managers, and an admin panel.",
+          "I own the API and integration layer. That covers designing and implementing the API in FastAPI, the MongoDB Atlas schema, and the data access layer the frontend builds on. The biggest piece challenge is impementing Microsoft 365; Parkview already runs on Microsoft, so I’m connecting the system to Outlook calendars, email, and Teams through the Microsoft Graph API, so lab events show up where staff already work instead of in on another platfrom.",
           "The project is under an NDA, and Parkview keeps all rights to the source code, so I only share the features, my role, and the technology here. It’s currently in active development and runs through the 2026–2027 school year.",
         ],
         sections: [
@@ -412,9 +412,9 @@ export type Project = {
           {
             title: "Key Challenges",
             bullets: [
-              "Building for a Real Sponsor: Gathering requirements from Parkview and designing around how the lab actually works, under an NDA.",
               "Clean Contracts for Teammates: Other team members build directly on my endpoints, so I agree on API contracts and data shapes early and keep them documented.",
               "Learning a New Framework on the Job: Picking up FastAPI while building production-bound endpoints for the team.",
+              "Gathering the Team: As a group of six developers in their final year; the coursework and outside variables such as jobs significantly increase the difficulty of meeting in person to discuss project details.",
               "Enterprise Integration: Connecting to an organization’s existing Microsoft 365 environment instead of building a separate notification system.",
             ],
           },

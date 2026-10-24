@@ -11,8 +11,8 @@ function KeySkillDot() {
 export function LiveDot() {
   return (
     <span className="relative flex h-2 w-2">
-      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-      <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
+      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
     </span>
   );
 }
@@ -149,7 +149,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
               <div className="flex items-start justify-between gap-4 border-b border-border p-6">
                 <div>
                   {active.status === "in-progress" && (
-                    <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-accent">
+                    <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400">
                       <LiveDot />
                       In progress
                     </div>

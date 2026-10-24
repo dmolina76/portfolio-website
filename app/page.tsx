@@ -95,8 +95,8 @@ export default function Home() {
                 <div className="mt-6 rounded-xl border border-border bg-background p-4">
                   <div className="flex items-center gap-2">
                     <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
                     </span>
                     <p className="text-xs font-semibold uppercase tracking-wide text-muted">
                       Now building
