@@ -11,7 +11,7 @@ export default function AboutPage() {
           <section className="mt-10 rounded-2xl border border-border bg-card p-6 shadow-sm">
             <h2 className="text-xl font-semibold">Hi — I’m Diego.</h2>
             <p className="mt-4 leading-7 text-muted">
-              I’m currently finishing my Computer Science Bachelor's at Purdue Fort Wayne with a focus on building practical software:
+              I’m currently finishing my Computer Science Bachelor’s at Purdue Fort Wayne with a focus on building practical software:
               mobile apps, backend logic, and Machine Learning systems. I like projects where I can take something
               from “idea” to “working,” especially when there’s real-world applications and constraints.
             </p>

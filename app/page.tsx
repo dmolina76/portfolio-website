@@ -1,8 +1,11 @@
 // app/page.tsx
 import Link from "next/link";
 import { stack } from "@/lib/stack";
+import { projects } from "@/lib/projects";
 
 export default function Home() {
+  const nowBuilding = projects.filter((p) => p.status === "in-progress");
+
   return (
     <main className="min-h-screen bg-background text-foreground px-6 py-16">
       <div className="mx-auto max-w-6xl">
@@ -87,14 +90,38 @@ export default function Home() {
                 </li>
               </ul>
 
-              <div className="mt-6 rounded-xl border border-border bg-background p-4">
-                <p className="text-xs font-semibold uppercase tracking-wide text-muted">
-                  Current focus
-                </p>
-                <p className="mt-2 text-sm text-muted">
-                  Shipping portfolio projects with clean architecture, consistent UI, and strong documentation.
-                </p>
-              </div>
+              {/* Now building */}
+              {nowBuilding.length > 0 && (
+                <div className="mt-6 rounded-xl border border-border bg-background p-4">
+                  <div className="flex items-center gap-2">
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                    </span>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-muted">
+                      Now building
+                    </p>
+                  </div>
+
+                  <ul className="mt-3 divide-y divide-border">
+                    {nowBuilding.map((p) => (
+                      <li key={p.title} className="py-2 first:pt-0 last:pb-0">
+                        <p className="text-sm font-medium">{p.title.split(" (")[0]}</p>
+                        {p.statusNote ? (
+                          <p className="mt-0.5 text-xs text-muted">{p.statusNote}</p>
+                        ) : null}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    href="/projects#working-on"
+                    className="mt-3 inline-block text-xs font-medium text-accent hover:underline"
+                  >
+                    See what I’m working on →
+                  </Link>
+                </div>
+              )}
             </div>
           </aside>
         </section>
@@ -136,7 +163,7 @@ export default function Home() {
 <section className="mt-12 rounded-2xl border border-border bg-card p-6 shadow-sm">
   <h2 className="text-xl font-semibold">Tools & Tech Stack</h2>
   <p className="mt-2 text-sm text-muted">
-    The tools I’ve used across projects I've completed.
+    The tools I’ve used across projects I’ve completed.
   </p>
 
   <div className="mt-6 grid gap-6 md:grid-cols-3">

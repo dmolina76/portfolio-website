@@ -36,7 +36,7 @@ export async function POST(req: Request) {
       to,
       subject,
       text,
-      replyTo: email, // so you can hit "reply" and respond to them
+      replyTo: email,
     });
 
     if (error) {
