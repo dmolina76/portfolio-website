@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-website-diegomolina.vercel.app"),
+  metadataBase: new URL("https://www.diegomolinaa.com"),
   title: {
     default: "Diego Molina Salinas | Software Engineer",
     template: "%s | Diego Molina Salinas",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Diego Molina Salinas | Software Engineer",
     description:
       "Software Engineer focused on Android app development, backend systems, and machine learning.",
-    url: "https://portfolio-website-diegomolina.vercel.app",
+    url: "https://www.diegomolinaa.com",
     siteName: "Diego Molina Salinas",
     images: [
       {
