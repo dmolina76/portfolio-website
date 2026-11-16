@@ -94,6 +94,16 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
     setActive(null);
   };
 
+  // Stop the page behind the popup from scrolling while it's open
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
@@ -142,11 +152,25 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
           {/* Backdrop */}
           <div className="absolute inset-0 bg-black/60" onClick={close} />
 
-          {/* Panel wrapper */}
-          <div className="absolute inset-0 flex items-center justify-center p-4">
-            <div className="w-full max-w-5xl overflow-hidden rounded-2xl border border-border bg-background shadow-sm">
-              {/* Header */}
-              <div className="flex items-start justify-between gap-4 border-b border-border p-6">
+          {/* Panel wrapper: full-screen sheet on phones, centered card on larger screens */}
+          <div className="absolute inset-0 flex items-stretch justify-center sm:items-center sm:p-4">
+            <div className="relative flex h-[100dvh] w-full max-w-5xl flex-col overflow-y-auto overscroll-contain bg-background shadow-sm sm:h-auto sm:max-h-[85dvh] sm:rounded-2xl sm:border sm:border-border">
+              {/* Mobile top bar: keeps Close reachable while scrolling */}
+              <div className="sticky top-0 z-20 flex items-center justify-between border-b border-border bg-background px-4 pb-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:hidden">
+                <span className="text-xs font-semibold uppercase tracking-wide text-muted">
+                  Project details
+                </span>
+                <button
+                  type="button"
+                  onClick={close}
+                  className="rounded-lg border border-border bg-card px-3 py-2 text-sm font-medium hover:bg-background"
+                >
+                  Close
+                </button>
+              </div>
+
+              {/* Header (pinned on desktop, scrolls with content on phones) */}
+              <div className="flex items-start justify-between gap-4 border-b border-border p-4 sm:sticky sm:top-0 sm:z-10 sm:bg-background sm:p-6">
                 <div>
                   {active.status === "in-progress" && (
                     <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400">
@@ -154,7 +178,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                       In progress
                     </div>
                   )}
-                  <h2 className="text-2xl font-bold tracking-tight">
+                  <h2 className="text-xl font-bold tracking-tight sm:text-2xl">
                     {active.title}
                   </h2>
                   <p className="mt-2 text-sm text-muted">{active.subtitle}</p>
@@ -169,14 +193,14 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                 <button
                   type="button"
                   onClick={close}
-                  className="rounded-lg border border-border bg-card px-3 py-2 text-sm font-medium hover:bg-background"
+                  className="hidden rounded-lg border border-border bg-card px-3 py-2 text-sm font-medium hover:bg-background sm:block"
                 >
                   Close
                 </button>
               </div>
 
-              {/* Scrollable content */}
-              <div className="max-h-[75vh] overflow-y-auto p-6">
+              {/* Content */}
+              <div className="p-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:p-6">
                 {/* Project Summary */}
                 {active.details?.summary?.length ? (
                   <section className="rounded-xl border border-border bg-card p-5">
@@ -276,7 +300,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                   <span className="font-medium">Esc</span> to close.
                 </p>
               </div>
-              {/* end scrollable content */}
+              {/* end content */}
             </div>
           </div>
         </div>

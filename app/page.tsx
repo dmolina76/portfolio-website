@@ -47,12 +47,14 @@ export default function Home() {
                 Contact
               </Link>
 
-              <Link
+              <a
                 href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium hover:bg-background"
               >
                 Download resume (PDF)
-              </Link>
+              </a>
             </div>
           </div>
 
