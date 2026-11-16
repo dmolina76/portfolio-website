@@ -20,7 +20,7 @@ export default function Home() {
 
             <p className="mt-6 max-w-2xl text-base leading-7 text-muted">
               I’m a Computer Science student pursuing my Bachelor’s at Purdue Fort Wayne.
-              I build real-world systems with a focus on app development—especially Android—plus clean data
+              I build real-world systems with a focus on app development, clean data
               models and reliable backend behavior. I’m also actively growing my machine learning and
               cybersecurity foundations by building projects that ship, not just demos.
             </p>
